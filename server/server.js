@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(logger("tiny"));
 connectDB();
 
-app.use("/user", userRoutes);
+app.use("/api/user", userRoutes);
 app.use("/seller", sellerRoutes);
 app.use("/product", productRputes);
 

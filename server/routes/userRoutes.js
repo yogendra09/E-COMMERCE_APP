@@ -1,10 +1,11 @@
 import express from "express";
+import { home, userRegister } from "../controllers/userController.js";
 
-const route = express.Router();
-
-
-
+const router = express.Router();
 
 
+router.post("/",home);
 
-export default route
+
+
+export default router
