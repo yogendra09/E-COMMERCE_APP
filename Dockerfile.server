@@ -1,0 +1,18 @@
+# Use Node.js as the base image
+FROM node:18
+
+# Set working directory
+WORKDIR /app
+
+# Copy package.json and install dependencies
+COPY server/package.json .
+RUN npm install
+
+# Copy the rest of the backend code
+COPY server/ .
+
+# Expose the backend port
+EXPOSE 5000
+
+# Run the backend
+CMD ["npm", "start"]

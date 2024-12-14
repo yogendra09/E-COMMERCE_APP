@@ -1,0 +1,24 @@
+# Use Node.js as the base image
+FROM node:18
+
+# Set working directory
+WORKDIR /app
+
+# Copy package.json and install dependencies
+COPY client/package.json .
+RUN npm install --force
+
+# Copy the rest of the client code
+COPY client/ .
+
+# Build the React app
+RUN npm run build
+
+# Use nginx to serve the client
+FROM nginx:alpine
+COPY --from=0 /app/build /usr/share/nginx/html
+
+# Expose the client port
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
