@@ -1,15 +1,22 @@
-import React from 'react'
-import { Provider } from 'react-redux'
-import { store } from '../../src/store/store'
 
-const Wrapper = ({children}) => {
+import { Provider } from "react-redux";
+import { store } from "@/store/store.js";
+import {BrowserRouter} from 'react-router-dom'
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
+
+const Wrapper = ({ children }) => {
   return (
     <div>
-        <Provider store={store}>
+      <Provider store={store}>
+        <BrowserRouter>
+        <ToastContainer />
         {children}
-        </Provider>
+      
+        </BrowserRouter>
+      </Provider>
     </div>
-  )
-}
+  );
+};
 
-export default Wrapper
+export default Wrapper;
