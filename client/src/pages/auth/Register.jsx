@@ -1,14 +1,33 @@
+import { useState } from "react";
 import { Link } from "react-router-dom"
 
 
 const Register = () => {
+
+  
+    const [formData, setFormData] = useState({
+      name:"",
+      email: "",
+      password: "",
+    });
+  
+    const handleChange = (e) => {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const submitHandler = (e) => {
+      e.preventDefault();
+      console.log(formData);
+      
+    };
+
   return (
     <div>
         <div className="min-h-screen bg-gray-50 my-28">
       <div className="flex flex-col justify-center font-[sans-serif] sm:h-screen p-4">
         <div className="max-w-md w-full mx-auto border border-gray-300 rounded-2xl p-8">
           <div className="text-center mb-12">
-            <a href="javascript:void(0)">
+            <a href="/">
               <img
                 src="https://readymadeui.com/readymadeui.svg"
                 alt="logo"
@@ -64,7 +83,7 @@ const Register = () => {
                 >
                   I accept the{" "}
                   <a
-                    href="javascript:void(0);"
+                    href=""
                     className="text-blue-600 font-semibold hover:underline ml-1"
                   >
                     Terms and Conditions

@@ -34,13 +34,13 @@ const Nav = () => {
   return (
     <header className="flex shadow-[rgba(0,0,0,0.1)_-4px_9px_25px_-6px] py-2 px-4 sm:px-10 bg-white font-[sans-serif] min-h-[70px] tracking-wide sticky top-0 z-50">
       <div className="w-full flex flex-wrap items-center lg:gap-y-4 gap-y-6 gap-x-4 relative">
-        <a href="javascript:void(0)">
+        <Link to="/">
           <img
             src="https://readymadeui.com/readymadeui-short.svg"
             alt="logo"
             className="w-9 h-9"
           />
-        </a>
+        </Link>
         <div
           id="collapseMenu"
           onClick={toggleMenu} 
@@ -68,7 +68,7 @@ const Nav = () => {
           </button>
           <ul className="lg:ml-12 lg:flex lg:gap-x-8 max-lg:space-y-3 max-lg:fixed max-lg:bg-white max-lg:w-2/3 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:px-8 max-lg:py-4 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50">
             <li className="mb-6 hidden max-lg:block">
-              <a href="javascript:void(0)">
+              <a href="/">
                 <img
                   src="https://readymadeui.com/readymadeui-short.svg"
                   alt="logo"
@@ -78,7 +78,7 @@ const Nav = () => {
             </li>
             <li className="max-lg:border-b max-lg:py-3 relative lg:after:absolute lg:after:bg-pink-500 lg:after:w-full lg:after:h-[3px] lg:after:block lg:after:-bottom-2 lg:after:transition-all lg:after:duration-300">
               <a
-                href="javascript:void(0)"
+                href="/"
                 className="text-[#333] block text-sm font-semibold"
               >
                 Men
@@ -86,7 +86,7 @@ const Nav = () => {
             </li>
             <li className="max-lg:border-b max-lg:py-3 relative lg:hover:after:absolute lg:after:bg-pink-500 lg:after:w-0 lg:hover:after:w-full lg:hover:after:h-[3px] lg:after:block lg:after:-bottom-2 lg:after:transition-all lg:after:duration-300">
               <a
-                href="javascript:void(0)"
+                href="/"
                 className="text-[#333] block text-sm font-semibold"
               >
                 Women
@@ -94,7 +94,7 @@ const Nav = () => {
             </li>
             <li className="max-lg:border-b max-lg:py-3 relative lg:hover:after:absolute lg:after:bg-pink-500 lg:after:w-0 lg:hover:after:w-full lg:hover:after:h-[3px] lg:after:block lg:after:-bottom-2 lg:after:transition-all lg:after:duration-300">
               <a
-                href="javascript:void(0)"
+                href="/"
                 className="text-[#333] block text-sm font-semibold"
               >
                 Kids
@@ -102,7 +102,7 @@ const Nav = () => {
             </li>
             <li className="max-lg:border-b max-lg:py-3 relative lg:hover:after:absolute lg:after:bg-pink-500 lg:after:w-0 lg:hover:after:w-full lg:hover:after:h-[3px] lg:after:block lg:after:-bottom-2 lg:after:transition-all lg:after:duration-300">
               <a
-                href="javascript:void(0)"
+                href="/"
                 className="text-[#333] block text-sm font-semibold"
               >
                 Home &amp; Living
@@ -110,7 +110,7 @@ const Nav = () => {
             </li>
             <li className="max-lg:border-b max-lg:py-3 relative lg:hover:after:absolute lg:after:bg-pink-500 lg:after:w-0 lg:hover:after:w-full lg:hover:after:h-[3px] lg:after:block lg:after:-bottom-2 lg:after:transition-all lg:after:duration-300">
               <a
-                href="javascript:void(0)"
+                href="/"
                 className="text-[#333] block text-sm font-semibold"
               >
                 Beauty
@@ -118,7 +118,7 @@ const Nav = () => {
             </li>
             <li className="max-lg:border-b max-lg:py-3 relative lg:hover:after:absolute lg:after:bg-pink-500 lg:after:w-0 lg:hover:after:w-full lg:hover:after:h-[3px] lg:after:block lg:after:-bottom-2 lg:after:transition-all lg:after:duration-300">
               <a
-                href="javascript:void(0)"
+                href="/"
                 className="text-[#333] block text-sm font-semibold"
               >
                 Studio
@@ -183,7 +183,7 @@ const Nav = () => {
                   <ul className="space-y-1.5">
                     <li>
                       <a
-                        href="javascript:void(0)"
+                        href="/"
                         className="text-sm text-gray-500 hover:text-pink-500"
                       >
                         Order
@@ -191,7 +191,7 @@ const Nav = () => {
                     </li>
                     <li>
                       <a
-                        href="javascript:void(0)"
+                        href="/"
                         className="text-sm text-gray-500 hover:text-pink-500"
                       >
                         Wishlist
@@ -199,7 +199,7 @@ const Nav = () => {
                     </li>
                     <li>
                       <a
-                        href="javascript:void(0)"
+                        href="/"
                         className="text-sm text-gray-500 hover:text-pink-500"
                       >
                         Gift Cards
@@ -207,7 +207,7 @@ const Nav = () => {
                     </li>
                     <li>
                       <a
-                        href="javascript:void(0)"
+                        href="/"
                         className="text-sm text-gray-500 hover:text-pink-500"
                       >
                         Contact Us
@@ -218,7 +218,7 @@ const Nav = () => {
                   <ul className="space-y-1.5">
                     <li>
                       <a
-                        href="javascript:void(0)"
+                        href="/"
                         className="text-sm text-gray-500 hover:text-pink-500"
                       >
                         Coupons
@@ -226,7 +226,7 @@ const Nav = () => {
                     </li>
                     <li>
                       <a
-                        href="javascript:void(0)"
+                        href="/"
                         className="text-sm text-gray-500 hover:text-pink-500"
                       >
                         Saved Credits
@@ -234,7 +234,7 @@ const Nav = () => {
                     </li>
                     <li>
                       <a
-                        href="javascript:void(0)"
+                        href="/"
                         className="text-sm text-gray-500 hover:text-pink-500"
                       >
                         Contact Us
@@ -242,7 +242,7 @@ const Nav = () => {
                     </li>
                     <li>
                       <a
-                        href="javascript:void(0)"
+                        href="/"
                         className="text-sm text-gray-500 hover:text-pink-500"
                       >
                         Saved Addresses

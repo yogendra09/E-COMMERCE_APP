@@ -27,7 +27,7 @@ const Footer = () => {
           </div>
           <ul className="flex items-center mt-12 space-x-4">
             <li className="bg-[#343538] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
-              <a href="javascript:void(0)">
+              <a href="/">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20px"
@@ -43,7 +43,7 @@ const Footer = () => {
               </a>
             </li>
             <li className="bg-[#343538] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
-              <a href="javascript:void(0)">
+              <a href="/">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20px"
@@ -59,7 +59,7 @@ const Footer = () => {
               </a>
             </li>
             <li className="bg-[#343538] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
-              <a href="javascript:void(0)">
+              <a href="/">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20px"
@@ -95,7 +95,7 @@ const Footer = () => {
               </a>
             </li>
             <li className="bg-[#343538] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
-              <a href="javascript:void(0)">
+              <a href="/">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20px"
@@ -114,7 +114,7 @@ const Footer = () => {
           <ul className="space-y-4">
             <li>
               <a
-                href="javascript:void(0)"
+                href="/"
                 className="text-gray-300 hover:text-white text-sm"
               >
                 Web Development
@@ -122,7 +122,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="javascript:void(0)"
+                href="/"
                 className="text-gray-300 hover:text-white text-sm"
               >
                 Mobile App Development
@@ -130,7 +130,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="javascript:void(0)"
+                href="/"
                 className="text-gray-300 hover:text-white text-sm"
               >
                 UI/UX Design
@@ -138,7 +138,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="javascript:void(0)"
+                href="/"
                 className="text-gray-300 hover:text-white text-sm"
               >
                 Digital Marketing
@@ -151,7 +151,7 @@ const Footer = () => {
           <ul className="space-y-4">
             <li>
               <a
-                href="javascript:void(0)"
+                href="/"
                 className="text-gray-300 hover:text-white text-sm"
               >
                 Webinars
@@ -159,7 +159,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="javascript:void(0)"
+                href="/"
                 className="text-gray-300 hover:text-white text-sm"
               >
                 Ebooks
@@ -167,7 +167,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="javascript:void(0)"
+                href="/"
                 className="text-gray-300 hover:text-white text-sm"
               >
                 Templates
@@ -175,7 +175,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="javascript:void(0)"
+                href="/"
                 className="text-gray-300 hover:text-white text-sm"
               >
                 Tutorials
@@ -188,7 +188,7 @@ const Footer = () => {
           <ul className="space-y-4">
             <li>
               <a
-                href="javascript:void(0)"
+                href="/"
                 className="text-gray-300 hover:text-white text-sm"
               >
                 Our Story
@@ -196,7 +196,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="javascript:void(0)"
+                href="/"
                 className="text-gray-300 hover:text-white text-sm"
               >
                 Mission and Values
@@ -204,7 +204,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="javascript:void(0)"
+                href="/"
                 className="text-gray-300 hover:text-white text-sm"
               >
                 Team
@@ -212,7 +212,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="javascript:void(0)"
+                href="/"
                 className="text-gray-300 hover:text-white text-sm"
               >
                 Testimonials
