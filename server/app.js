@@ -3,23 +3,31 @@ const app = express();
 const path = require("path");
 require("dotenv").config({ path: ".env" });
 
-const userRoutes = require('./routes/userRoutes.js')
-const productRoutes = require('./routes/userRoutes.js')
+const userRoutes = require("./routes/userRoutes.js");
+const productRoutes = require("./routes/userRoutes.js");
 // const userRoutes = require('./routes/userRoutes.js')
 
 const connectDB = require("./config/db.config");
 connectDB();
 
-const logger = require('morgan');
+const logger = require("morgan");
 app.use(logger("tiny"));
 
 const cors = require("cors");
 app.use(
   cors({
-      origin: ["http://localhost:5173","https://e-commerce-pbm4v8sm6-yogendra09s-projects.vercel.app/login"],
-      methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD"],
-      allowedHeaders: "X-Requested-With,content-type,authorization,Cookie",
-      credentials: true,
+    origin: [
+      "http://localhost:5173",
+      "https://e-commerce-pbm4v8sm6-yogendra09s-projects.vercel.app",
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD"],
+    allowedHeaders: [
+      "X-Requested-With",
+      "Content-Type",
+      "Authorization",
+      "Cookie",
+    ],
+    credentials: true, // Allows cookies and other credentials
   })
 );
 
@@ -42,8 +50,8 @@ app.use(cookieparser());
 const { generatedErrors } = require("./middlewares/error.js");
 const ErrorHandler = require("./utils/ErrorHandler.js");
 
-app.use('/api/user',userRoutes);
-app.use('/api/product',productRoutes);
+app.use("/api/user", userRoutes);
+app.use("/api/product", productRoutes);
 
 // if (process.env.NODE_ENV == "production") {
 
