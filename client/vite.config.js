@@ -11,11 +11,12 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      '/api': {
-        target: 'https://e-commerce-app-ewel.onrender.com',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
-      },
+      proxy: {
+        '/api': {
+          target: 'https://e-commerce-app-ewel.onrender.com',
+          changeOrigin: true,
+          secure: false, // Use this if the backend server uses self-signed SSL certificates
+        },
     },
   },
 })
