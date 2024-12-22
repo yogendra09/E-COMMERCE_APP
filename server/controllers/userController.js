@@ -1,7 +1,7 @@
 const { catchAsyncErrors } = require("../middlewares/catchAsyncErrors");
 const User = require("../models/userModel");
 const ErrorHandler = require("../utils/ErrorHandler");
-const sendMail = require("../utils/nodemailer");
+// const sendMail = require("../utils/nodemailer");
 const { sendtoken } = require("../utils/sendToken");
 
 exports.getAllUsers = catchAsyncErrors(async (req, res, next) => {
@@ -12,7 +12,7 @@ exports.getAllUsers = catchAsyncErrors(async (req, res, next) => {
 exports.currentUser = catchAsyncErrors(async (req, res, next) => {
   const user = await User.findById(req.id);
   if(!user) return next(new ErrorHandler("user not exist", 401));
-  const senduser = {name:user.name,email:user.email,phone:user.phone,role:user.role};
+  const senduser = {name:user.name,email:user.email,phone:user.phone};
   res.status(200).json({ status:true,data:senduser});
 });
 
@@ -77,12 +77,12 @@ exports.sendForgetPasswordOtp = catchAsyncErrors(async(req,res,next)=>{
   const url = `${req.protocol}://${req.headers.host}/user/forget-link/${user._id}`
   res.json(url);
    
-  sendMail(req,res,next,{
-    email:user.email,
-    subject:"forget password",
-    message:`your otp is ${otp} and it will be expired in 5 minutes`,
-    html:`<h1>your otp is ${otp}</h1>`
-  });
+  // sendMail(req,res,next,{
+  //   email:user.email,
+  //   subject:"forget password",
+  //   message:`your otp is ${otp} and it will be expired in 5 minutes`,
+  //   html:`<h1>your otp is ${otp}</h1>`
+  // });
 
 })
 

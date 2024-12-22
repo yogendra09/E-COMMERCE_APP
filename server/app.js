@@ -3,14 +3,24 @@ const app = express();
 const path = require("path");
 require("dotenv").config({ path: ".env" });
 
+const userRoutes = require('./routes/userRoutes.js')
+const productRoutes = require('./routes/userRoutes.js')
+// const userRoutes = require('./routes/userRoutes.js')
+
 const connectDB = require("./config/db.config");
 connectDB();
 
 const logger = require('morgan');
-// app.use(logger("tiny"));
+app.use(logger("tiny"));
 
 const cors = require("cors");
-app.use(cors({ origin: true, credentials: true }));
+app.use(
+  cors({
+      origin: "http://localhost:5173",
+      methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD"],
+      credentials: true,
+  })
+);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -30,6 +40,9 @@ app.use(cookieparser());
 
 const { generatedErrors } = require("./middlewares/error.js");
 const ErrorHandler = require("./utils/ErrorHandler.js");
+
+app.use('/api/user',userRoutes);
+app.use('/api/product',productRoutes);
 
 // if (process.env.NODE_ENV == "production") {
 

@@ -65,9 +65,9 @@ userSchema.methods.comparepassword = function (password) {
   return bcrypt.compareSync(password, this.password);
 };
 
-userSchema.methods.getjwttoken = function () {
+userSchema.methods.getJwtToken = function () {
   return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_EXPIRE,
+    expiresIn: process.env.JWT_EXPIRE || "30d",
   });
 };
 

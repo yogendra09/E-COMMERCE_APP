@@ -1,25 +1,36 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
+import {
+  asyncCurrentUser,
+  asyncUserLogin,
+} from "../../store/Actions/userAction";
 const Login = () => {
-
-
-  const [formData, setFormData] = useState({
+  const dispatch = useDispatch();
+  const [FormData, setFormData] = useState({
     email: "",
     password: "",
   });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({ ...FormData, [e.target.name]: e.target.value });
   };
-
-  
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(formData);
-    
+    console.log(FormData);
+    if (!FormData.email || !FormData.password) {
+      return alert("please fill all fields");
+    }
+    dispatch(asyncUserLogin(FormData));
   };
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      dispatch(asyncCurrentUser());
+    }
+    dispatch(asyncCurrentUser());
+  }, []);
 
   return (
     <div className="bg-gray-50 font-[sans-serif] min-h-screen py-20">
@@ -39,12 +50,13 @@ const Login = () => {
             <form onSubmit={submitHandler} className="mt-8 space-y-4">
               <div>
                 <label className="text-gray-800 text-sm mb-2 block">
-                 Email
+                  Email
                 </label>
                 <div className="relative flex items-center">
                   <input
-                  onChange={handleChange}
-                    name="Email"
+                    value={FormData.email}
+                    onChange={handleChange}
+                    name="email"
                     type="text"
                     required
                     className="w-full text-gray-800 text-sm border border-gray-300 px-4 py-3 rounded-md outline-blue-600"
@@ -71,7 +83,8 @@ const Login = () => {
                 </label>
                 <div className="relative flex items-center">
                   <input
-                  onChange={handleChange}
+                    value={FormData.password}
+                    onChange={handleChange}
                     name="password"
                     type="password"
                     required

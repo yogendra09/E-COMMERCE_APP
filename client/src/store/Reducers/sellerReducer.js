@@ -1,18 +1,18 @@
-import { createSlice } from '@reduxjs/toolkit'
+// import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = {
-  value: 0,
-}
+// const initialState = {
+//   value: 0,
+// }
 
-export const sellerReducer = createSlice({
-  name: 'counter',
-  initialState,
-  reducers: {
+// export const sellerReducer = createSlice({
+//   name: 'counter',
+//   initialState,
+//   reducers: {
    
-  },
-})
+//   },
+// })
 
-// Action creators are generated for each case reducer function
-export const {  } = sellerReducer.actions
+// // Action creators are generated for each case reducer function
+// export const {  } = sellerReducer.actions
 
-export default sellerReducer.reducer
+// export default sellerReducer.reducer

@@ -1,11 +1,14 @@
 import { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { asyncUserLogout } from "../store/Actions/userAction";
 
 const Nav = () => {
   const [profileMenu, setProfileMenu] = useState(false);
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const { isAuthenticated , user} = useSelector((state) => state.userReducer);
+  const dispatch = useDispatch();
   const dropdownRef = useRef(null);
 
   const toggleMenu = () => {
@@ -68,61 +71,61 @@ const Nav = () => {
           </button>
           <ul className="lg:ml-12 lg:flex lg:gap-x-8 max-lg:space-y-3 max-lg:fixed max-lg:bg-white max-lg:w-2/3 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:px-8 max-lg:py-4 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50">
             <li className="mb-6 hidden max-lg:block">
-              <a href="/">
+              <Link to="/">
                 <img
                   src="https://readymadeui.com/readymadeui-short.svg"
                   alt="logo"
                   className="w-9 h-9"
                 />
-              </a>
+              </Link>
             </li>
             <li className="max-lg:border-b max-lg:py-3 relative lg:after:absolute lg:after:bg-pink-500 lg:after:w-full lg:after:h-[3px] lg:after:block lg:after:-bottom-2 lg:after:transition-all lg:after:duration-300">
-              <a
-                href="/"
+              <Link
+                to="/"
                 className="text-[#333] block text-sm font-semibold"
               >
                 Men
-              </a>
+              </Link>
             </li>
             <li className="max-lg:border-b max-lg:py-3 relative lg:hover:after:absolute lg:after:bg-pink-500 lg:after:w-0 lg:hover:after:w-full lg:hover:after:h-[3px] lg:after:block lg:after:-bottom-2 lg:after:transition-all lg:after:duration-300">
-              <a
-                href="/"
+              <Link
+                to="/"
                 className="text-[#333] block text-sm font-semibold"
               >
                 Women
-              </a>
+              </Link>
             </li>
             <li className="max-lg:border-b max-lg:py-3 relative lg:hover:after:absolute lg:after:bg-pink-500 lg:after:w-0 lg:hover:after:w-full lg:hover:after:h-[3px] lg:after:block lg:after:-bottom-2 lg:after:transition-all lg:after:duration-300">
-              <a
-                href="/"
+              <Link
+                to="/"
                 className="text-[#333] block text-sm font-semibold"
               >
                 Kids
-              </a>
+              </Link>
             </li>
             <li className="max-lg:border-b max-lg:py-3 relative lg:hover:after:absolute lg:after:bg-pink-500 lg:after:w-0 lg:hover:after:w-full lg:hover:after:h-[3px] lg:after:block lg:after:-bottom-2 lg:after:transition-all lg:after:duration-300">
-              <a
-                href="/"
+              <Link
+                to="/"
                 className="text-[#333] block text-sm font-semibold"
               >
                 Home &amp; Living
-              </a>
+              </Link>
             </li>
             <li className="max-lg:border-b max-lg:py-3 relative lg:hover:after:absolute lg:after:bg-pink-500 lg:after:w-0 lg:hover:after:w-full lg:hover:after:h-[3px] lg:after:block lg:after:-bottom-2 lg:after:transition-all lg:after:duration-300">
-              <a
-                href="/"
+              <Link
+                to="/"
                 className="text-[#333] block text-sm font-semibold"
               >
                 Beauty
-              </a>
+              </Link>
             </li>
             <li className="max-lg:border-b max-lg:py-3 relative lg:hover:after:absolute lg:after:bg-pink-500 lg:after:w-0 lg:hover:after:w-full lg:hover:after:h-[3px] lg:after:block lg:after:-bottom-2 lg:after:transition-all lg:after:duration-300">
-              <a
-                href="/"
+              <Link
+                to="/"
                 className="text-[#333] block text-sm font-semibold"
               >
                 Studio
-              </a>
+              </Link>
             </li>
           </ul>
           <div className="lg:mx-8 max-xl:hidden flex items-center bg-gray-100 px-4 h-10 rounded flex-1">
@@ -161,7 +164,7 @@ const Nav = () => {
                     data-original="#000000"
                   />
                 </svg>
-                <span className="text-xs font-semibold mt-1">Profile</span>
+                <Link to="/auth/profile" className="text-xs font-semibold mt-1">Profile</Link>
               </div>
               {profileMenu && (
                 <div
@@ -170,83 +173,83 @@ const Nav = () => {
                 >
                   <h6 className="font-semibold text-sm">Welcome</h6>
                   <p className="text-sm text-gray-500 mt-1">
-                    To access account and manage orders
+                   {isAuthenticated ? `Hi, ${user?.name}` : 'To access account and manage orders'}
                   </p>
                   <button
                   onClick={() => setProfileMenu(false)}
                     type="button"
                     className="bg-transparent border border-gray-300 hover:border-pink-500 px-4 py-2 mt-4 text-sm text-pink-500 font-semibold"
                   >
-                  <Link to='/login'>LOGIN</Link> / <Link to='/register'>SIGNUP</Link>
+                 { isAuthenticated ? <span onClick={() => dispatch(asyncUserLogout())}>logout</span>  : <span> <Link to='/login'>LOGIN</Link> / <Link to='/register'>SIGNUP</Link></span>}
                   </button>
                   <hr className="border-b-0 my-4" />
                   <ul className="space-y-1.5">
                     <li>
-                      <a
-                        href="/"
+                      <Link
+                        to="/"
                         className="text-sm text-gray-500 hover:text-pink-500"
                       >
                         Order
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
-                        href="/"
+                      <Link
+                        to="/"
                         className="text-sm text-gray-500 hover:text-pink-500"
                       >
                         Wishlist
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
-                        href="/"
+                      <Link
+                        to="/"
                         className="text-sm text-gray-500 hover:text-pink-500"
                       >
                         Gift Cards
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
-                        href="/"
+                      <Link
+                        to="/"
                         className="text-sm text-gray-500 hover:text-pink-500"
                       >
                         Contact Us
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                   <hr className="border-b-0 my-4" />
                   <ul className="space-y-1.5">
                     <li>
-                      <a
-                        href="/"
+                      <Link
+                        to="/"
                         className="text-sm text-gray-500 hover:text-pink-500"
                       >
                         Coupons
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
-                        href="/"
+                      <Link
+                        to="/"
                         className="text-sm text-gray-500 hover:text-pink-500"
                       >
                         Saved Credits
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
-                        href="/"
+                      <Link
+                        to="/"
                         className="text-sm text-gray-500 hover:text-pink-500"
                       >
                         Contact Us
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
-                        href="/"
+                      <Link
+                        to="/"
                         className="text-sm text-gray-500 hover:text-pink-500"
                       >
                         Saved Addresses
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -281,7 +284,7 @@ const Nav = () => {
                     data-original="#000000"
                   />
                 </svg>
-                <span className="text-xs font-semibold mt-1">Bag</span>
+                <Link to='/auth/cart' className="text-xs font-semibold mt-1">Bag</Link>
               </div>
             </li>
           </ul>

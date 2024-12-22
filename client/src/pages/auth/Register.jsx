@@ -1,23 +1,27 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom"
+import { asyncUserRegister } from "../../store/Actions/userAction";
 
 
 const Register = () => {
 
-  
-    const [formData, setFormData] = useState({
+  const dispatch = useDispatch();
+    const [FormData, setFormData] = useState({
       name:"",
       email: "",
+      phone: "",
       password: "",
     });
   
     const handleChange = (e) => {
-      setFormData({ ...formData, [e.target.name]: e.target.value });
+      setFormData({ ...FormData, [e.target.name]: e.target.value });
     };
 
     const submitHandler = (e) => {
       e.preventDefault();
-      console.log(formData);
+      console.log(FormData);
+      dispatch(asyncUserRegister(FormData));
       
     };
 
@@ -35,17 +39,46 @@ const Register = () => {
               />
             </a>
           </div>
-          <form>
+          <form onSubmit={submitHandler}>
             <div className="space-y-6">
+            <div>
+                <label className="text-gray-800 text-sm mb-2 block">
+                  Name
+                </label>
+                <input
+                 value={FormData.name} defaultValue={FormData.name}
+                onChange={handleChange}
+                  name="name"
+                  type="text"
+                  className="text-gray-800 bg-white border border-gray-300 w-full text-sm px-4 py-3 rounded-md outline-blue-500"
+                  placeholder="Enter Name"
+                />
+              </div>
               <div>
                 <label className="text-gray-800 text-sm mb-2 block">
                   Email Id
                 </label>
                 <input
+                 value={FormData.email} 
+                 onChange={handleChange}
                   name="email"
                   type="text"
                   className="text-gray-800 bg-white border border-gray-300 w-full text-sm px-4 py-3 rounded-md outline-blue-500"
                   placeholder="Enter email"
+                />
+              </div>
+              
+              <div>
+                <label className="text-gray-800 text-sm mb-2 block">
+                  Phone Number
+                </label>
+                <input
+                value={FormData.phone}
+                 onChange={handleChange}
+                  name="phone"
+                  type="text"
+                  className="text-gray-800 bg-white border border-gray-300 w-full text-sm px-4 py-3 rounded-md outline-blue-500"
+                  placeholder="Enter confirm phone number"
                 />
               </div>
               <div>
@@ -53,21 +86,12 @@ const Register = () => {
                   Password
                 </label>
                 <input
+                value={FormData.password}
+                 onChange={handleChange}
                   name="password"
                   type="password"
                   className="text-gray-800 bg-white border border-gray-300 w-full text-sm px-4 py-3 rounded-md outline-blue-500"
                   placeholder="Enter password"
-                />
-              </div>
-              <div>
-                <label className="text-gray-800 text-sm mb-2 block">
-                  Confirm Password
-                </label>
-                <input
-                  name="cpassword"
-                  type="password"
-                  className="text-gray-800 bg-white border border-gray-300 w-full text-sm px-4 py-3 rounded-md outline-blue-500"
-                  placeholder="Enter confirm password"
                 />
               </div>
               <div className="flex items-center">
@@ -93,7 +117,7 @@ const Register = () => {
             </div>
             <div className="!mt-12">
               <button
-                type="button"
+                type="submit"
                 className="w-full py-3 px-4 text-sm tracking-wider font-semibold rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
               >
                 Create an account
