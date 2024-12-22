@@ -18,6 +18,7 @@ app.use(
   cors({
       origin: ["http://localhost:5173","https://e-commerce-pbm4v8sm6-yogendra09s-projects.vercel.app/login"],
       methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD"],
+      allowedHeaders: "X-Requested-With,content-type,authorization,Cookie",
       credentials: true,
   })
 );
