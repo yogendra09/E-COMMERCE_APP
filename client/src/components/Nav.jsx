@@ -272,7 +272,7 @@ const Nav = () => {
               </div>
             </li>
             <li className="relative px-1 after:absolute after:bg-pink-500 after:w-0 hover:after:w-full hover:after:h-[3px] after:block after:-bottom-2 after:left-0 after:transition-all after:duration-300">
-              <div className="flex flex-col justify-center items-center cursor-pointer">
+              <Link to='/auth/cart' className="flex flex-col justify-center items-center cursor-pointer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="18px"
@@ -284,8 +284,8 @@ const Nav = () => {
                     data-original="#000000"
                   />
                 </svg>
-                <Link to='/auth/cart' className="text-xs font-semibold mt-1">Bag</Link>
-              </div>
+                <span className="text-xs font-semibold mt-1">Bag</span>
+              </Link>
             </li>
           </ul>
           <button  onClick={toggleMenu}  id="toggleOpen" className="lg:hidden ml-6">

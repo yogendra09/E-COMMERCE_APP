@@ -25,7 +25,7 @@ export const asyncCurrentUser = () => async (dispatch) => {
       }
       
     } catch (error) {
-      toast.error(error.response.data.message|| "unauthorized")
+      toast.error(error?.response?.data?.message|| "unauthorized")
       // console.log(error.response.data.message || error);
     }
   };
@@ -42,8 +42,8 @@ export const asyncCurrentUser = () => async (dispatch) => {
       toast.error(data.message)
      }
     } catch (error) {
-      toast.error(error.response.data.message)
-      console.log(error.response.data.message || error);
+      toast.error(error?.response?.data?.message)
+      console.log(error?.response?.data?.message || error);
     }
   };
   
@@ -61,8 +61,8 @@ export const asyncUserLogin = (user) => async (dispatch) => {
       }
       
     } catch (error) {
-      toast.error(error.response.data.message)
-      console.log(error.response.data.message || error);
+      toast.error(error?.response?.data?.message)
+      console.log(error?.response?.data?.message || error);
     }
   };
   
@@ -78,7 +78,7 @@ export const asyncUserLogin = (user) => async (dispatch) => {
       }
   
     } catch (error) {
-      toast.error(error.response.data.message)
-      console.log(error.response.data.message || error);
+      toast.error(error?.response?.data?.message)
+      console.log(error?.response?.data?.message || error);
     }
   };

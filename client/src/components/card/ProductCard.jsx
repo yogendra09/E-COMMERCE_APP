@@ -1,7 +1,11 @@
 import placeholderImage from "@/../public/placeholder-image.webp";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../store/Reducers/cartReducer";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({ product, originalPrice }) => {
+  const dispatch = useDispatch();
   const [imageLoaded, setImageLoaded] = useState(false);
   return (
     <div className="relative m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
@@ -22,9 +26,9 @@ const ProductCard = ({ product, originalPrice }) => {
       </a>
       <div className="mt-4 px-5 pb-5">
         <a href="#">
-          <h5 className="text-xl tracking-tight text-slate-900">
+          <Link to={`/auth/product/${product.id}`} className="text-xl tracking-tight text-slate-900">
             {product.title}
-          </h5>
+          </Link>
         </a>
         <div className="mt-2 mb-5 flex items-center justify-between">
           <p>
@@ -84,7 +88,7 @@ const ProductCard = ({ product, originalPrice }) => {
         </div>
         <button
           type="button"
-          
+          onClick={() => dispatch(addToCart(product))} // Add to cart
           className="flex items-center justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
         >
           <svg

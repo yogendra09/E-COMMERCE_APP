@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import {
   asyncCurrentUser,
   asyncUserLogin,
-} from "../../store/Actions/userAction";
+} from "../store/Actions/userAction";
 const Login = () => {
   const dispatch = useDispatch();
   const [FormData, setFormData] = useState({

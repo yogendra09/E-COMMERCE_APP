@@ -226,6 +226,6 @@ exports.getCartProducts = catchAsyncErrors(async (req, res, next) => {
   if (!user) return next(new ErrorHandler("not found", 404));
   return res.status(200).json({
     status: true,
-    data: cartProducts,
+    data: cartProducts, 
   });
 });
