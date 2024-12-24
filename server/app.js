@@ -3,8 +3,8 @@ const app = express();
 const path = require("path");
 require("dotenv").config({ path: ".env" });
 
-const userRoutes = require("./routes/userRoutes.js");
-const productRoutes = require("./routes/userRoutes.js");
+const userRoutes = require("./routes/user.routes.js");
+const productRoutes = require("./routes/product.routes.js");
 // const userRoutes = require('./routes/userRoutes.js')
 
 const connectDB = require("./config/db.config");

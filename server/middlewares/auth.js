@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 const ErrorHandler = require("../utils/ErrorHandler");
-const User = require("../models/userModel");
+const User = require("../models/user.model.js");
 
 exports.isAuthenticated = async (req, res, next) => {
   try {
