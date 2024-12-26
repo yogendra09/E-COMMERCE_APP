@@ -1,8 +1,8 @@
-const { catchAsyncErrors } = require("../middlewares/catchAsyncErrors");
+const { catchAsyncErrors } = require("../middlewares/catchAsyncErrors.js");
 const User = require("../models/user.model.js");
-const ErrorHandler = require("../utils/ErrorHandler");
+const ErrorHandler = require("../utils/ErrorHandler.js");
 // const sendMail = require("../utils/nodemailer");
-const { sendtoken } = require("../utils/sendToken");
+const { sendtoken } = require("../utils/sendToken.js");
 
 exports.getAllUsers = catchAsyncErrors(async (req, res, next) => {
   const users = await User.find();

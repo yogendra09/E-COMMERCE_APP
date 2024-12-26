@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const auth = require('../middlewares/auth.js');
-const userController = require('../controllers/userController.js')
+const userController = require('../controllers/user.controller.js')
 
 router.post("/",auth.isAuthenticated,userController.currentUser);
 router.post("/register", userController.register);
