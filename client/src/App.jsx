@@ -7,7 +7,7 @@ import Register from "./pages/Register";
 import PrivateRoute from "./components/PrivateRoute";
 import Profile from "./pages/auth/Profile";
 import Cart from "./pages/auth/cart/Cart";
-import AdminDashboard from "./layout/admin/AdminDashboard";
+import AdminDashboard from "./views/admin/AdminDashboard";
 import ProductView from "./pages/auth/ProductView";
 
 const App = () => {
