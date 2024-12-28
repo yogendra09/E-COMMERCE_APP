@@ -1,11 +1,12 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom"
-import { asyncUserRegister } from "../store/Actions/userAction";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom"
+import { asyncCurrentUser, asyncUserRegister } from "../store/Actions/userAction";
 
 
 const Register = () => {
-
+  const { isAuthenticated } = useSelector((state) => state.userReducer);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
     const [FormData, setFormData] = useState({
       name:"",
@@ -25,9 +26,16 @@ const Register = () => {
       
     };
 
+      useEffect(() => {
+        dispatch(asyncCurrentUser());
+        if (isAuthenticated) {
+          navigate("/auth");
+        }
+      }, [isAuthenticated]);
+
   return (
     <div>
-        <div className="min-h-screen bg-gray-50 my-28">
+        <div className="min-h-screen bg-gray-50">
       <div className="flex flex-col justify-center font-[sans-serif] sm:h-screen p-4">
         <div className="max-w-md w-full mx-auto border border-gray-300 rounded-2xl p-8">
           <div className="text-center mb-12">

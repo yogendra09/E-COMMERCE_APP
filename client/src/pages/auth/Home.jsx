@@ -7,7 +7,6 @@ import { asyncUpdateProduct } from "../../store/Actions/productAction";
 const Home = () => {
   const dispatch = useDispatch();
   const { products } = useSelector((state) => state.productReducer);
-  const [category, setCategory] = useState(null)
   const itemsPerPage = 6;
   const [currentPage, setCurrentPage] = useState(1);
   const startIndex = (currentPage - 1) * itemsPerPage;

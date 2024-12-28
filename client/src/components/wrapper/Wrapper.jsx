@@ -3,18 +3,25 @@ import { store } from "@/store/store.js";
 import { BrowserRouter } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import SocketProvider from "../../context/SocketContext";
+import PropTypes from 'prop-types';
 
 const Wrapper = ({ children }) => {
   return (
     <div>
       <Provider store={store}>
         <BrowserRouter>
+        <SocketProvider>
           <ToastContainer />
           {children}
+          </SocketProvider>
         </BrowserRouter>
       </Provider>
     </div>
   );
+};
+Wrapper.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export default Wrapper;

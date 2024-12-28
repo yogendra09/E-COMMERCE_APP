@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import {
-  asyncCurrentUser,
-  asyncUserLogin,
-} from "../store/Actions/userAction";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { asyncCurrentUser, asyncUserLogin } from "../store/Actions/userAction";
 const Login = () => {
+  const { isAuthenticated } = useSelector((state) => state.userReducer);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [FormData, setFormData] = useState({
     email: "",
@@ -26,14 +25,14 @@ const Login = () => {
   };
 
   useEffect(() => {
-    if (localStorage.getItem("token")) {
-      dispatch(asyncCurrentUser());
-    }
     dispatch(asyncCurrentUser());
-  }, []);
+    if (isAuthenticated) {
+      navigate("/auth");
+    }
+  }, [isAuthenticated]);
 
   return (
-    <div className="bg-gray-50 font-[sans-serif] min-h-screen py-20">
+    <div className="bg-gray-50 font-[sans-serif] min-h-screen">
       <div className="min-h-screen flex flex-col items-center justify-center py-6 px-4">
         <div className="max-w-md w-full">
           <a href="/">

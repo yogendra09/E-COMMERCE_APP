@@ -9,17 +9,18 @@ import Profile from "./pages/auth/Profile";
 import Cart from "./pages/auth/cart/Cart";
 import AdminDashboard from "./views/admin/AdminDashboard";
 import ProductView from "./pages/auth/ProductView";
+import Landing from "./pages/Landing";
 
 const App = () => {
   return (
     <>
       <Routes>
+        <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/auth/*" element={<UserAuthRoutes />} />
         <Route path="/admin/*" element={<AdminRoutes />} />
       </Routes>
-      <Footer />
     </>
   );
 };
@@ -30,12 +31,13 @@ const UserAuthRoutes = () => {
       <Nav />
       <Routes>
         <Route element={<PrivateRoute />}>
-          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/product/:id" element={<ProductView />} />
         </Route>
       </Routes>
+      <Footer />
     </div>
   );
 };
