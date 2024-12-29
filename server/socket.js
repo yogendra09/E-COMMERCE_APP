@@ -5,7 +5,7 @@ module.exports.intializeSocket = (server) => {
     cors: {
       origin: [
         "http://localhost:5173",
-        "https://e-commerce-pbm4v8sm6-yogendra09s-projects.vercel.app/api",
+        "https://e-store-sooty-phi.vercel.app",
       ],
       methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD"],
       allowedHeaders: [
