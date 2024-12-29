@@ -30,6 +30,7 @@ const UserAuthRoutes = () => {
     <div>
       <Nav />
       <Routes>
+          <Route path="/" element={<Home />} />
         <Route element={<PrivateRoute />}>
           <Route path="/home" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
