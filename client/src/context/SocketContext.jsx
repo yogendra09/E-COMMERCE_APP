@@ -10,6 +10,10 @@ const SocketProvider = ({ children }) => {
       console.log("connected to server");
     });
 
+    socket.on("db_connected", ({message}) => {
+      console.log("New message received:", message);
+    });
+
     socket.on("disconnect", () => {
       console.log("disconnected from server");
     });
