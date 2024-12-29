@@ -1,0 +1,15 @@
+{
+    "roles": {
+      "admin": ["create_user", "read_user", "update_user", "delete_user"],
+      "superAdmin": ["manage_roles", "manage_permissions", "create_user", "read_user", "update_user", "delete_user"],
+      "user": ["read_user"]
+    },
+    "permissions": [
+      "create_user",
+      "read_user",
+      "update_user",
+      "delete_user",
+      "manage_roles",
+      "manage_permissions"
+    ]
+  }

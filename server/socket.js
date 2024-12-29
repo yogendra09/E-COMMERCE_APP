@@ -5,19 +5,20 @@ module.exports.intializeSocket = (server) => {
         cors: {
         origin: "*", // Allow all origins
         methods: ["GET", "POST"], // Allow only GET and POST requests
-        credentials: true, // Allow credentials (e.g., cookies)
+        // credentials: true, // Allow credentials (e.g., cookies)
         },
-        allowEIO3: true,
-        transports: ["websocket"],
+        // allowEIO3: true,
+        // transports: ["websocket"],
       });
 
     io.on('connection', (socket) => {
-        console.log('a user connected');
+        console.log('a user connected',socket.id);
 
+      
 
         
         socket.on('disconnect', () => {
-          console.log('user disconnected');
+          console.log('user disconnected',socket.id);
         });
       });
 

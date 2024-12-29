@@ -1,3 +1,4 @@
+import { current } from "@reduxjs/toolkit";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom"
@@ -7,11 +8,13 @@ const ProductView = () => {
     const { id } = useParams();
     const [currentProduct, setCurrentProduct] = useState({})
     const { products} = useSelector((state) => state.productReducer);
+    const [currentImage, setcurrentImage] = useState(null)
     useEffect(() => {
       
         if(products.length > 0){
             const product = products.find((product) => product.id == id)
             setCurrentProduct(product)
+            setcurrentImage(product?.images[0])
         }
        
     }, [id]);
@@ -22,12 +25,15 @@ const ProductView = () => {
     <div className="grid items-start grid-cols-1 lg:grid-cols-2 gap-6 max-lg:gap-12">
       <div className="w-full lg:sticky top-0 sm:flex gap-2">
         <div className="sm:space-y-3 w-16 max-sm:w-12 max-sm:flex max-sm:mb-4 max-sm:gap-4">
-          <img src="https://readymadeui.com/images/product1.webp" alt="Product1" className="w-full cursor-pointer rounded-md outline" />
-          <img src="https://readymadeui.com/images/product6.webp" alt="Product2" className="w-full cursor-pointer rounded-md" />
-          <img src="https://readymadeui.com/images/product7.webp" alt="Product3" className="w-full cursor-pointer rounded-md" />
-          <img src="https://readymadeui.com/images/product3.webp" alt="Product4" className="w-full cursor-pointer rounded-md" />
+          {
+            currentProduct?.images?.map((image, index) => (
+              <img onClick={()=>setcurrentImage(image)} src={image} key={index} alt="Product1" className="w-full cursor-pointer rounded-md outline" />
+            ))
+          }
+
+         
         </div>
-        <img src={currentProduct?.thumbnail} alt="Product" className="w-4/5 rounded-md object-cover" />
+        <img src={currentImage || currentProduct?.thumbnail} alt="Product" className="w-4/5 rounded-md object-cover" />
       </div>
       <div>
         <h2 className="text-2xl font-bold text-gray-800"> {currentProduct?.title} | {currentProduct?.category}</h2>

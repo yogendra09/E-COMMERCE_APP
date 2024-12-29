@@ -1,5 +1,6 @@
 const Footer = () => {
   return (
+    <div className="mt-28 px-4 sm:px-10">
     <footer className="bg-gray-800 py-12 px-12 font-sans tracking-wide">
       <div className="grid max-md:grid-cols-1 max-xl:grid-cols-3 xl:grid-cols-5 xl:gap-20 max-xl:gap-8">
         <div className="max-xl:col-span-full xl:col-span-2">
@@ -225,6 +226,7 @@ const Footer = () => {
         © ReadymadeUI. All rights reserved.
       </p>
     </footer>
+    </div>
   );
 };
 

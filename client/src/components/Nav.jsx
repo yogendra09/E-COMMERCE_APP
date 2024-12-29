@@ -81,7 +81,7 @@ const Nav = () => {
             </li>
             <li className="max-lg:border-b max-lg:py-3 relative lg:after:absolute lg:after:bg-pink-500 lg:after:w-full lg:after:h-[3px] lg:after:block lg:after:-bottom-2 lg:after:transition-all lg:after:duration-300">
               <Link
-                to="/"
+                to="/auth/home"
                 className="text-[#333] block text-sm font-semibold"
               >
                 Men

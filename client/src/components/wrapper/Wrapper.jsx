@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import SocketProvider from "../../context/SocketContext";
 import PropTypes from 'prop-types';
+import LoaderProvider from "../../context/LoaderContext";
 
 const Wrapper = ({ children }) => {
   return (
@@ -12,8 +13,10 @@ const Wrapper = ({ children }) => {
       <Provider store={store}>
         <BrowserRouter>
         <SocketProvider>
+          <LoaderProvider>
           <ToastContainer />
           {children}
+          </LoaderProvider>
           </SocketProvider>
         </BrowserRouter>
       </Provider>
