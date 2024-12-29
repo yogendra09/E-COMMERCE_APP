@@ -28,7 +28,7 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Responsive Grid Layout */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 sm:px-8 md:px-12 py-8">
+      <div className="grid grid-cols-1 place-items-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 sm:px-8 md:px-12 py-8" >
         {products.length > 0 &&
           currentProducts.map((product) => (
             <ProductCard
