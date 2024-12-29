@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react"
 import Nav from "../components/Nav"
 import { LoaderContext } from "../context/LoaderContext";
 import Footer from "../components/Footer";
+import Loader from "../components/Loader";
 
 
 const Landing = () => {
@@ -17,6 +18,10 @@ const Landing = () => {
 
 
     return (
+        <>
+
+      {Loading && <Loader />}
+
         <div>
             <div className="bg-white">
                 <Nav />
@@ -448,13 +453,11 @@ const Landing = () => {
                         </div>
                     </div>
                 </div>
-         <div className="">
-            
-              <Footer/>
-            </div>
+           <Footer/>
             </div>
         </div>
 
+        </>
     )
 }
 

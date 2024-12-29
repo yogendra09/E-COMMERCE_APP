@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { asyncCurrentUser, asyncUserLogin } from "../store/Actions/userAction";
+import { asyncUserLogin } from "../store/Actions/userAction";
 const Login = () => {
   const { isAuthenticated } = useSelector((state) => state.userReducer);
   const navigate = useNavigate();
@@ -25,7 +25,6 @@ const Login = () => {
   };
 
   useEffect(() => {
-    dispatch(asyncCurrentUser());
     if (isAuthenticated) {
       navigate("/auth");
     }
@@ -137,7 +136,7 @@ const Login = () => {
                 </button>
               </div>
               <p className="text-gray-800 text-sm !mt-8 text-center">
-                Don't have an account?{"{"}" "{"}"}
+                Don t have an account?{"{"}{"}"}
                 <Link
                   to="/register"
                   className="text-blue-600 hover:underline ml-1 whitespace-nowrap font-semibold"
