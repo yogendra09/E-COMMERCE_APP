@@ -44,6 +44,10 @@ const userSchema = new mongoose.Schema({
     type:Date,
     default:null
   },
+  permissions:{
+    type:Array,
+    default:[],
+  },
   password: {
     select:false,
     type: String,
@@ -66,7 +70,7 @@ userSchema.methods.comparepassword = function (password) {
 };
 
 userSchema.methods.getJwtToken = function () {
-  return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
+  return jwt.sign({ id: this._id,email: this.email }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRE || "30d",
   });
 };

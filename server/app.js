@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 require("dotenv").config({ path: ".env" });
-
+const passport = require("passport");
 const userRoutes = require("./routes/user.routes.js");
 const productRoutes = require("./routes/product.routes.js");
 // const userRoutes = require('./routes/userRoutes.js')
@@ -43,6 +43,8 @@ app.use(
     secret: process.env.EXPRESS_SESSION_SECRET || "its_a_secret",
   })
 );
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(cookieparser());
 
 const { generatedErrors } = require("./middlewares/error.js");
