@@ -1,6 +1,6 @@
 import axios from "@/utils/axios";
 import { toast } from "react-toastify";
-import { addUser, removeUser } from "../Reducers/userReducer";
+import { addUser, removeUser, setAdmin } from "../Reducers/userReducer";
 import { asyncUpdateProduct } from "./productAction";
 
 export const asyncCurrentUser = () => async (dispatch) => {
@@ -13,14 +13,16 @@ export const asyncCurrentUser = () => async (dispatch) => {
       });
       
       if (data.status == true) {
-        // console.log(data.data);
+        console.log(data.data);
+        
         dispatch(addUser(data.data));
-        // if(data?.data?.role === "admin"){
-        //   dispatch(updateAdmin())
-        // }
+        if(data?.data?.isAdmin){
+          dispatch(setAdmin());
+        }
       }else{
         dispatch(removeUser());
         localStorage.removeItem("token");
+        9145839872
         return;
       }
       

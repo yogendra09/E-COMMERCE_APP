@@ -12,7 +12,9 @@ exports.getAllUsers = catchAsyncErrors(async (req, res, next) => {
 exports.currentUser = catchAsyncErrors(async (req, res, next) => {
   const user = await User.findById(req.id);
   if(!user) return next(new ErrorHandler("user not exist", 401));
-  const senduser = {name:user.name,email:user.email,phone:user.phone};
+  console.log(user);
+  
+  const senduser = {name:user.name,email:user.email,phone:user.phone,isAdmin:user.admin,};
   res.status(200).json({ status:true,data:senduser});
 });
 

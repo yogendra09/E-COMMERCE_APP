@@ -31,11 +31,6 @@ const userSchema = new mongoose.Schema({
     ]
   },
   cart:[cartSchema],
-  role:{
-   type:String,
-   default:"user",
-   enum:["user","admin"]
-  },
   otp:{
     type:String,
     default:null
@@ -47,6 +42,10 @@ const userSchema = new mongoose.Schema({
   permissions:{
     type:Array,
     default:[],
+  },
+  admin:{
+    type:Boolean,
+    default:false
   },
   password: {
     select:false,

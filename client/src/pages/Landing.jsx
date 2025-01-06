@@ -3,14 +3,17 @@ import Nav from "../components/Nav"
 import { LoaderContext } from "../context/LoaderContext";
 import Footer from "../components/Footer";
 import Loader from "../components/Loader";
+import { useDispatch, useSelector } from "react-redux";
+import { asyncCurrentUser } from "../store/Actions/userAction";
 
 
 const Landing = () => {
 
     const { Loading, setLoading } = useContext(LoaderContext);
-
+    const dispatch = useDispatch();
     useEffect(() => {
-        console.log(Loading);
+        console.log(Loading, "Loading");
+        dispatch(asyncCurrentUser());
         setTimeout(() => {
             setLoading(false);
         }, 2000);

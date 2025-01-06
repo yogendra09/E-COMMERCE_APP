@@ -6,7 +6,10 @@ import { ToastContainer } from "react-toastify";
 import SocketProvider from "../../context/SocketContext";
 import PropTypes from 'prop-types';
 import LoaderProvider from "../../context/LoaderContext";
-
+import '../../css/style.css';
+import '../../css/satoshi.css';
+// import 'jsvectormap/dist/css/jsvectormap.css';
+import 'flatpickr/dist/flatpickr.min.css';
 const Wrapper = ({ children }) => {
   return (
     <div>

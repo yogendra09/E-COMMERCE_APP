@@ -1,9 +1,16 @@
-
+import { useEffect } from "react";
+import { Navigate, Outlet } from "react-router-dom";
+import { asyncCurrentUser } from "@/store/Actions/userAction";
+import { useDispatch, useSelector } from "react-redux";
 
 const AdminRoutes = () => {
-  return (
-    <div>AdminRoutes</div>
-  )
-}
+  const dispatch = useDispatch();
+  const { isAdmin } = useSelector((state) => state.userReducer);
 
-export default AdminRoutes
+  useEffect(()=>{
+    dispatch(asyncCurrentUser());
+  },[dispatch, isAdmin]);
+  return isAdmin ? <Outlet /> : <Navigate to="/login" replace />;
+};
+
+export default AdminRoutes;

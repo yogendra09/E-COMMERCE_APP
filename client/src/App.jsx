@@ -11,6 +11,7 @@ import AdminDashboard from "./views/admin/AdminDashboard";
 import ProductView from "./pages/auth/ProductView";
 import Landing from "./pages/Landing";
 
+
 const App = () => {
   return (
     <>
@@ -19,7 +20,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/auth/*" element={<UserAuthRoutes />} />
-        <Route path="/admin/*" element={<AdminRoutes />} />
+        <Route path="/admin/*" element={<AdminDashboard />} />
       </Routes>
     </>
   );
@@ -30,7 +31,7 @@ const UserAuthRoutes = () => {
     <div>
       <Nav />
       <Routes>
-          <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route element={<PrivateRoute />}>
           <Route path="/home" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
@@ -43,13 +44,6 @@ const UserAuthRoutes = () => {
   );
 };
 
-const AdminRoutes = () => {
-  return (
-    <Routes>
-      <Route path="" element={<AdminDashboard />} />
-      
-    </Routes>
-  );
-};
+
 
 export default App;
