@@ -5,7 +5,7 @@ import {  asyncUserRegister } from "../store/Actions/userAction";
 
 
 const Register = () => {
-  const { isAuthenticated } = useSelector((state) => state.userReducer);
+  const { isAuthenticated,isAdmin } = useSelector((state) => state.userReducer);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [FormData, setFormData] = useState({
@@ -28,7 +28,11 @@ const Register = () => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate("/auth");
+      if (isAdmin) {
+        navigate("/admin/dashboard");
+      } else {
+        navigate("/auth");
+      }
     }
   }, [isAuthenticated]);
 

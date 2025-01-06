@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { asyncUserLogin } from "../store/Actions/userAction";
 const Login = () => {
-  const { isAuthenticated } = useSelector((state) => state.userReducer);
+  const { isAuthenticated ,isAdmin} = useSelector((state) => state.userReducer);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [FormData, setFormData] = useState({
@@ -26,7 +26,11 @@ const Login = () => {
 
   useEffect(() => {
     if (isAuthenticated) {
+      if (isAdmin) {
+        navigate("/admin/dashboard");
+      } else {
       navigate("/auth");
+    }
     }
   }, [isAuthenticated]);
 
