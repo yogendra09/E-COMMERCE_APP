@@ -14,7 +14,7 @@ export const userReducer = createSlice({
       (state.user = action.payload), (state.isAuthenticated = true);
     },
     removeUser: (state) => {
-      (state.user = null), (state.isAuthenticated = false);
+      (state.user = null), (state.isAuthenticated = false),(state.isAdmin = false);
     },
     setAdmin: (state) => {
       state.isAdmin = true;

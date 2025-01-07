@@ -2,13 +2,14 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ClickOutside from '../ClickOutside';
 import UserOne from '../../../images/user/user-01.png';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { asyncUserLogout } from '../../../store/Actions/userAction';
 
 const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const {user} = useSelector((state) => state.userReducer);
 
-
+  const dispatch = useDispatch();
 
   return (
     <ClickOutside onClick={() => setDropdownOpen(false)} className="relative">
@@ -53,7 +54,7 @@ const DropdownUser = () => {
           <ul className="flex flex-col gap-5 border-b border-stroke px-6 py-7.5 dark:border-strokedark">
             <li>
               <Link
-                to="/profile"
+                to="/admin/profile"
                 className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
               >
                 <svg
@@ -99,7 +100,7 @@ const DropdownUser = () => {
             </li>
             <li>
               <Link
-                to="/settings"
+                to="/admin/settings"
                 className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
               >
                 <svg
@@ -123,7 +124,7 @@ const DropdownUser = () => {
               </Link>
             </li>
           </ul>
-          <button className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-danger lg:text-base">
+          <button onClick={() => dispatch(asyncUserLogout())} className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-danger lg:text-base">
             <svg
               className="fill-current"
               width="22"
