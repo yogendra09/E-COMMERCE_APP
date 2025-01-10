@@ -74,7 +74,6 @@ export const asyncUserLogin = (user) => async (dispatch) => {
           localStorage.removeItem("token");
           dispatch(removeUser());
           toast.success(data.message)
-          window.location.href = "/login";
       }else{
           toast.error("error occured")
       }
