@@ -10,12 +10,14 @@ import Cart from "./pages/auth/cart/Cart";
 import AdminDashboard from "./views/admin/AdminDashboard";
 import ProductView from "./pages/auth/ProductView";
 import Landing from "./pages/Landing";
+import GoogleAuth from "./pages/GoogleAuth";
 
 
 const App = () => {
   return (
     <>
       <Routes>
+        <Route path="/googleAuth/:token" element={<GoogleAuth />} />
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

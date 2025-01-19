@@ -1,7 +1,5 @@
 
 
-
-
 const TableThree = () => {
 
     const packageData = [

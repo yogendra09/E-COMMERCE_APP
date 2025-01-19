@@ -7,7 +7,10 @@ import ECommerce from "../../pages/admin/ECommerce";
 import { useDispatch, useSelector } from "react-redux";
 import { asyncCurrentUser } from "../../store/Actions/userAction";
 import AdminRoutes from "../../components/AdminRoutes";
-
+import Tables from "../../pages/admin/Tables";
+import Profile from "../../pages/admin/Profile";
+import Settings from "../../pages/admin/Settings";
+import ProductList from "./ProductList";
 
 const AdminDashboard = () => {
   const [loading, setLoading] = useState(true);
@@ -35,11 +38,11 @@ const AdminDashboard = () => {
           }
         />
         <Route
-          path="/calendar"
+          path="/products"
           element={
             <>
-              <PageTitle title="Calendar | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              {/* <Calendar /> */}
+              <PageTitle title="Product List | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <ProductList />
             </>
           }
         />
@@ -48,7 +51,7 @@ const AdminDashboard = () => {
           element={
             <>
               <PageTitle title="Profile | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              {/* <Profile /> */}
+              <Profile />
             </>
           }
         />
@@ -75,7 +78,7 @@ const AdminDashboard = () => {
           element={
             <>
               <PageTitle title="Tables | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              {/* <Tables /> */}
+              <Tables />
             </>
           }
         />
@@ -84,7 +87,8 @@ const AdminDashboard = () => {
           element={
             <>
               <PageTitle title="Settings | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              {/* <Settings /> */}
+              <Settings
+               />
             </>
           }
         />

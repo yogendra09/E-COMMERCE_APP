@@ -6,7 +6,7 @@ const passport = require("passport");
 const userRoutes = require("./routes/user.routes.js");
 const productRoutes = require("./routes/product.routes.js");
 // const userRoutes = require('./routes/userRoutes.js')
-
+const googleAuthRoutes = require("./routes/googleAuth.routes.js")
 
 const logger = require("morgan");
 app.use(logger("tiny"));
@@ -28,7 +28,7 @@ app.use(
     credentials: true, // Allows cookies and other credentials
   })
 );
-
+require("./config/passport.config.js");
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
@@ -52,16 +52,10 @@ const ErrorHandler = require("./utils/ErrorHandler.js");
 
 app.use("/api/user", userRoutes);
 app.use("/api/product", productRoutes);
+app.use("/auth/google",googleAuthRoutes );
 
-// if (process.env.NODE_ENV == "production") {
 
-app.get("*", (req, res, next) => {
-  console.log(path.join(`${__dirname}/../frontend/dist/index.html`));
-
-  res.sendFile(path.join(`${__dirname}/../frontend/dist`, "index.html"));
-});
-// } else {
-// app.get("/", (req, res, next) => res.send("server is ready"));
+app.get("/", (req, res, next) => res.send("server is ready"));
 app.all("*", function (req, res, next) {
   next(new ErrorHandler(`Requested URL not found ${req.url}`, 404));
 });

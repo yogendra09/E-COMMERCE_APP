@@ -48,7 +48,6 @@ export const asyncCurrentUser = () => async (dispatch) => {
     }
   };
   
-
 export const asyncUserLogin = (user) => async (dispatch) => {
     try {
       const { data } = await axios.post("/user/login", user);
