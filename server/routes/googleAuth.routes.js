@@ -29,7 +29,7 @@ router.get(
     res
       .status(302)
       .cookie("token", token, options)
-      .redirect(`http://localhost:5173/googleAuth?token=${token}`);
+      .redirect(`http://localhost:5173/googleAuth/${token}`);
     }
     else{
       res.status(400).json({status:false,message:"google auth failed"})
